@@ -20,7 +20,7 @@ class Equipo(models.Model):
 
     #Atributos definidos con model
     nombre = models.CharField(max_length=100)
-    categoria = models.CharField(max_length=50, choices=CATEGORIAS, default='')
+    categoria = models.ForeignKey(Categorias, on_delete=models.PROTECT, related_name='categorias')
     estado = models.CharField(max_length=50, choices=ESTADO, default='operativo')
     fecha_ingreso = models.DateField(auto_now_add=True)
     ubicacion = models.CharField(max_length=100)
@@ -28,3 +28,9 @@ class Equipo(models.Model):
     #Función str para obtener
     def __str__(self):
         return f"{self.nombre} ({self.categoria}) - {self.estado}"
+
+class Categoria(models.Model):
+    nombre = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f'{self.nombre}
