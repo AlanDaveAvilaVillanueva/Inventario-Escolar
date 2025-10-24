@@ -5,12 +5,6 @@ from django.db import models
 class Equipo(models.Model):
 
     #Variables para almacenar las tuplas que voy a designar mas adelante en choices
-    CATEGORIAS = [
-        ('proyector', 'Proyector'),
-        ('notebook', 'Notebook'),
-        ('impresora', 'Impresora')
-    ]
-
     ESTADO = [
         ('operativo', 'Operativo'),
         ('en_reparacion', 'En Reparación'),
